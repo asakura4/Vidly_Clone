@@ -10,23 +10,12 @@ namespace Vidly_Clone.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies/Random
-        public ActionResult Random()
+        // GET: Movies/Index
+        public ActionResult Index()
         {
-            var movie = new Movie() { Name = "Shrek!" };
-            var customers = new List<Customer>
-            {
-                new Customer{ Name = "Customer 1"},
-                new Customer{ Name = "Customer 2"}
-            };
+            var movies = getMovies();
 
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-            return View(viewModel);
+            return View(movies);
         }
 
         public ActionResult ByReleaseDate(int year, int month)
@@ -46,5 +35,13 @@ namespace Vidly_Clone.Controllers
             return Content(year + "/" + month);
         }
 
+        private IEnumerable<Movie> getMovies()
+        {
+            return new List<Movie>
+            {
+                new Movie { Id = 1, Name = "Shrek"},
+                new Movie { Id = 2, Name = "Wall-e"}
+            };
+        }
     }
 }
