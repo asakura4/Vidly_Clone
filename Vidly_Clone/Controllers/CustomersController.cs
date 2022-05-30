@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using System.Web.Mvc;
 using Vidly_Clone.Models;
+using Vidly_Clone.ViewModels;
 
 namespace Vidly_Clone.Controllers
 {
@@ -48,5 +49,59 @@ namespace Vidly_Clone.Controllers
 
         }
 
+        public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipTypes = membershipTypes
+            };
+
+            return View("CustomerForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+
+            if (customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+                // TryUpdateModel(customerInDb); /* not recommend, will update all property even if no change*/
+
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDate = customer.BirthDate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+            }
+
+
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _context.Customers.Single(c => c.Id == id);
+            if (customer == null)
+                return HttpNotFound();
+
+            var viewModel = new CustomerFormViewModel
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+
+            return View("CustomerForm", viewModel);
+
+        }
     }
 }
