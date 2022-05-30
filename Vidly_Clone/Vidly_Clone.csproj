@@ -200,6 +200,14 @@
     <Compile Include="Migrations\202205292353113_FixDiscountRate.designer.cs">
       <DependentUpon>202205292353113_FixDiscountRate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205300054400_AddMembershipTypeName.cs" />
+    <Compile Include="Migrations\202205300054400_AddMembershipTypeName.designer.cs">
+      <DependentUpon>202205300054400_AddMembershipTypeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205300104054_SetNameOfMembershipTypes.cs" />
+    <Compile Include="Migrations\202205300104054_SetNameOfMembershipTypes.designer.cs">
+      <DependentUpon>202205300104054_SetNameOfMembershipTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -321,6 +329,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205292353113_FixDiscountRate.resx">
       <DependentUpon>202205292353113_FixDiscountRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205300054400_AddMembershipTypeName.resx">
+      <DependentUpon>202205300054400_AddMembershipTypeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205300104054_SetNameOfMembershipTypes.resx">
+      <DependentUpon>202205300104054_SetNameOfMembershipTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
