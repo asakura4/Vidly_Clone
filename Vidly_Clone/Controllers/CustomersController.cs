@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 using System.Web.Mvc;
 using Vidly_Clone.Models;
 
@@ -9,10 +10,22 @@ namespace Vidly_Clone.Controllers
 {
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public CustomersController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = getCustomers();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             if (customers == null)
             {
@@ -24,7 +37,7 @@ namespace Vidly_Clone.Controllers
 
         public ActionResult Detail(int id)
         {
-            var customer = getCustomers().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
             {
@@ -35,14 +48,5 @@ namespace Vidly_Clone.Controllers
 
         }
 
-
-        private IEnumerable<Customer> getCustomers()
-        {
-            return new List<Customer>
-            {
-                new Customer { Id = 1, Name = "John Smith" },
-                new Customer { Id = 2, Name = "Mary Williams" },
-            };
-        }
     }
 }

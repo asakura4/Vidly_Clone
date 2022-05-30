@@ -184,8 +184,25 @@
     <Compile Include="Migrations\202205291859426_InitialModel.designer.cs">
       <DependentUpon>202205291859426_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205292326394_addIsSubscribedToCustomer.cs" />
+    <Compile Include="Migrations\202205292326394_addIsSubscribedToCustomer.designer.cs">
+      <DependentUpon>202205292326394_addIsSubscribedToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205292334064_AddMembershipType.cs" />
+    <Compile Include="Migrations\202205292334064_AddMembershipType.designer.cs">
+      <DependentUpon>202205292334064_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205292339311_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\202205292339311_PopulateMembershipTypes.designer.cs">
+      <DependentUpon>202205292339311_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205292353113_FixDiscountRate.cs" />
+    <Compile Include="Migrations\202205292353113_FixDiscountRate.designer.cs">
+      <DependentUpon>202205292353113_FixDiscountRate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -292,6 +309,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202205291859426_InitialModel.resx">
       <DependentUpon>202205291859426_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205292326394_addIsSubscribedToCustomer.resx">
+      <DependentUpon>202205292326394_addIsSubscribedToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205292334064_AddMembershipType.resx">
+      <DependentUpon>202205292334064_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205292339311_PopulateMembershipTypes.resx">
+      <DependentUpon>202205292339311_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205292353113_FixDiscountRate.resx">
+      <DependentUpon>202205292353113_FixDiscountRate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
