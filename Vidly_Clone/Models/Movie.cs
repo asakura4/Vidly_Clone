@@ -10,6 +10,7 @@ namespace Vidly_Clone.Models
     {
         public int Id { get; set; }
         [Required]
+        [StringLength(255)]
         public string Name { get; set; }
 
         [Required]
@@ -21,7 +22,8 @@ namespace Vidly_Clone.Models
 
         [Required]
         [Display(Name = "Number in Stock")]
-        public int NumberInStock { get; set; }
+        [Range(1, 20)]
+        public byte NumberInStock { get; set; }
 
         public Genre Genre { get; set; }
 
