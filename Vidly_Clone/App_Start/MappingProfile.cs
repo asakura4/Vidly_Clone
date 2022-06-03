@@ -12,8 +12,16 @@ namespace Vidly_Clone.App_Start
     {
         public MappingProfile()
         {
+            // API <- Outbound
             Mapper.CreateMap<Customer, CustomerDto>();
-            Mapper.CreateMap<CustomerDto, Customer>();
+            Mapper.CreateMap<Movie, MovieDto>();
+
+
+            // API <- Inbound
+            Mapper.CreateMap<CustomerDto, Customer>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
+            Mapper.CreateMap<MovieDto, Movie>()
+                .ForMember(m => m.Id, opt => opt.Ignore());
 
         }
     }
