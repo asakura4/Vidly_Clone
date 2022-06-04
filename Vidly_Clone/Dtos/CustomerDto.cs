@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using Vidly_Clone.Models;
 
 namespace Vidly_Clone.Dtos
 {
@@ -18,6 +17,8 @@ namespace Vidly_Clone.Dtos
         public bool IsSubscribedToNewsLetter { get; set; }
 
         public byte MembershipTypeId { get; set; }
+
+        public MembershipTypeDto MembershipType { get; set; }
 
         //[Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
