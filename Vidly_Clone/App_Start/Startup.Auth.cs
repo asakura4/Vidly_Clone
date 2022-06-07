@@ -55,7 +55,7 @@ namespace Vidly_Clone
 
             app.UseFacebookAuthentication(
                appId: "1175414886577685",
-               appSecret: "");
+               appSecret: "3f295fd5282491565c11c384c667ab42");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
