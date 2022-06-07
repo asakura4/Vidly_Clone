@@ -9,6 +9,7 @@ namespace Vidly_Clone
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute());
+            // filters.Add(new RequireHttpsAttribute());  // comment out if you want https only
         }
     }
 }
